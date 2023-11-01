@@ -1,0 +1,94 @@
+    1  cd /root/
+    2  cd /
+    3  ls -la
+    4  cd /root/.ssh/
+    5  ls -la
+    6  ssh-copy-id -i id_ed25519.pub 172.20.30.171
+    7  ssh-copy-id -i id_ed25519.pub 172.20.30.172
+    8  ssh-copy-id -i id_ed25519.pub 172.20.30.173
+    9  ssh-keygen -t ed25519 -C "ansible_ubuntu"
+   10  ls -la
+   11  ssh-copy-id -i ansible.pub 172.20.30.171
+   12  ssh-copy-id -i ansible.pub 172.20.30.172
+   13  ssh-copy-id -i ansible.pub 172.20.30.173
+   14  ssh 172.20.30.173
+   15  apt install git -y
+   16  cat id_ed25519
+   17  cat id_ed25519.pub 
+   18  cd
+   19  ls -la
+   20  lsblk
+   21  clear
+   22  cd /
+   23  git clone git@github.com:Taimumarfat/ansible_tutorial.git
+   24  ls -la
+   25  cd ansible_tutorial/
+   26  clear
+   27  ls -la
+   28  cat README.md 
+   29  vi README.md 
+   30  cat README.md 
+   31  git status
+   32  git add .
+   33  git status
+   34  git commit -m "update from ubuntu server"
+   35  git config --global user.name "Taimumarfat"
+   36  git config --global user.email "taimumarfat@gmail.com"
+   37  git commit -m "update from ubuntu server"
+   38  git status
+   39  git push origin main
+   40  ls -la
+   41  which ansible
+   42  ls
+   43  vi inventory
+   44  nano inventory
+   45  cat inventory 
+   46  git status
+   47  git add
+   48  git add .
+   49  git commit -m "update inventory file"
+   50  git push main
+   51  git push origin main
+   52  clear
+   53  history
+   54  clear
+   55  ansible all --key-file /root/.ssh/ansible -i inventory -m ping
+   56  clear
+   57  nano ansible.cfg
+   58  cat ansible.cfg 
+   59  cat /root/.ssh/ansible
+   60  clear
+   61  ls -la
+   62  ls /etc/ansible/
+   63  clear
+   64  ansible all -m ping
+   65  cat ansible.cfg 
+   66  clear
+   67  ansible all --list-hosts
+   68  clea
+   69  clear
+   70  ansible all -m gather_facts
+   71  ansible all -m gather_facts 172.20.30.172
+   72  ansible all -m gather_facts --limit 172.20.30.
+   73  ansible all -m gather_facts --limit 172.20.30.172
+   74  clear
+   75  git status
+   76  git add .
+   77  git commit -m "added ansible.cfg file"
+   78  git push origin main
+   79  clear
+   80  ansible all -m gather_facts --limit 172.20.30.171
+   81  clear
+   82  ansible all -m yum update_cache=true
+   83  ansible all -m yum -a update_cache=true
+   84  ansible all -m yum -a update_cache=true --become --ask-become-pass
+   85  ansible all -m yum -a name=vim-nox --become --ask-become-pass
+   86  ansible all -m yum -a name=vim --become --ask-become-pass
+   87  clear
+   88  history
+   89  cd /
+   90  ls -la
+   91  cd ansible_tutorial/
+   92  ls -l
+   93  touch command.txt
+   94  history >> command.txt 
