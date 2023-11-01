@@ -10,9 +10,9 @@
   - name: install apache2 package
     yum:
       name: httpd
-      state: latest
+      state: absent
 
   - name: add php support for apache
     yum:
       name: mod_ssl
-      state: latest
+      state: absent
