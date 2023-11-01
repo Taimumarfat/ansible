@@ -16,3 +16,8 @@
     yum:
       name: mod_ssl
       state: latest
+  - name: add php support for apache
+    yum:
+      name: php
+      state: latest
+    when: ansible_distribution == "CentOS"
