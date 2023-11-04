@@ -3,21 +3,27 @@
 - hosts: all
   become: true
   tasks:
-  - name: update repositiry index
-    yum:
-      update_cache: yes
 
-  - name: install apache2 package
+  - name: install httpd package
     yum:
       name: httpd
       state: latest
+    when: ansible_distribution == "Centos"
 
-  - name: add php support for apache
+  - name: add mod_ssl support for apache
     yum:
       name: mod_ssl
       state: latest
+    when: ansible_distribution == "Centos"
+ 
   - name: add php support for apache
     yum:
       name: php
       state: latest
     when: ansible_distribution == "CentOS"
+
+  - name: instll apache on ubuntu server
+    apt:
+      name: apache2
+      state: latest
+    when: ansible_distribution == "Ubuntu"
